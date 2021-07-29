@@ -24,6 +24,34 @@ Things you may want to cover:
 * ...
 
 
+## Usersテーブル
+
+|Column            |Type  |Options    |
+|------------------|------|-----------|
+|name              |string|null: false|
+|email_address     |string|null: false|
+|encrypted_password|string|null: false|
+
+
+
+### Association
+has_many: posts
+
+
+
+## Postsテーブル
+
+|Column   |Type  |Options    | 
+|---------|------|-----------|
+|title    |string|null: false|
+|text     |string|null: false|
+|post_date|string|null: false|
+
+
+### Association
+belongs_to: user
+
+
 アプリケーション名	
 アプリケーション概要	このアプリケーションでできることを記述。
 URL	デプロイ済みのURLを記述。デプロイが済んでいない場合は、デプロイが完了次第記述すること。
