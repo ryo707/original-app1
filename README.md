@@ -45,6 +45,7 @@ has_many: posts
 |---------|------|-----------|
 |title    |string|null: false|
 |text     |string|null: false|
+|image    |
 |post_date|string|null: false|
 
 
