@@ -662,7 +662,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #008800;
+  color: #15e715;
 }
 
 a:hover {
@@ -737,8 +737,8 @@ header.header div.header__bar.row div.grid-6 a.post:hover {
 
 header.header {
   padding: 10px;
-  border-bottom: 1px solid #00CC00;
-  background-color: #a4ecb3;
+  border-bottom: 1px solid #44ad41;
+  background-color: #d1ffbe;
   position: fixed;
   top: 0;
   left: 0;
@@ -994,7 +994,7 @@ form textarea {
 }
 
 form input[type="submit"] {
-  background-color: #5BFF7F;
+  background-color: #c9fcd4;
   border-radius: 20px;
   color: #fff;
   border: 0;
