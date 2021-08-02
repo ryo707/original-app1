@@ -638,7 +638,7 @@ ul li {
 body,
 html {
   height: 100%;
-  background-color: #B1F9D0;
+  background-color: #d7f0e1;
 }
 
 body {
@@ -994,7 +994,7 @@ form textarea {
 }
 
 form input[type="submit"] {
-  background-color: #c9fcd4;
+  background-color: #64fa84;
   border-radius: 20px;
   color: #fff;
   border: 0;
