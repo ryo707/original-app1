@@ -842,6 +842,8 @@ header.header .user_nav ul li a {
   right: 0;
 }
 
+/* ここから修正必要 */
+
 div.contents.row h2 {
   margin: 20px 0;
   padding: 0;
@@ -859,11 +861,11 @@ div.contents.row .new_user {
 }
 
 div.contents.row div.content_post {
-  margin: 20px 0;
+  margin: 15px 0;
   padding: 30px;
   position: relative;
-  height: 400px;
-  color: #fff;
+  height: 300px;
+  color: rgb(53, 226, 91);
   background-size: cover;
   background-position: center center;
   border-radius: 3px;
@@ -935,22 +937,24 @@ div.contents.row div.content_post .more ul.more_list li a:hover {
   color: #fff;
 }
 
+/* title,textの配置等 */
+
 div.contents.row div.content_post p {
   position: absolute;
-  left: 30px;
+  left: 20px;
   right: 100px;
-  bottom: 30px;
+  bottom: 20px;
   margin: 0;
-  font-size: 20px;
+  font-size: 23px;
   z-index: 2;
   font-weight: bold;
-  text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
+  text-shadow: 0 0 2px rgb(42, 167, 63), 0 0 1px rgb(0, 170, 23), 0 0 1px #000;
 }
 
 div.contents.row div.content_post span.name {
   position: absolute;
-  right: 30px;
-  bottom: 30px;
+  right: 20px;
+  bottom: 20px;
   z-index: 2;
   font-size: 13px;
 }
