@@ -5,11 +5,15 @@
         <span><%= image_tag 'sozai_cman_jp_20210807011101.png' %></span>
         <ul class="more_list">
           <li>
+            <%= link_to '編集', edit_post_path(post.id), method: :get %>
+          </li>        
+          <li>
             <%= link_to '削除', "/posts/#{post.id}", method: :delete %>
           </li>
         </ul>
       </div>
       <p><%= post.title %></p>
+      <p><%= post.text %></p>
       <span class="name">
         <%= post.nickname %>
       </span>
