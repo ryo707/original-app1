@@ -5,6 +5,9 @@
         <span><%= image_tag 'sozai_cman_jp_20210807011101.png' %></span>
         <ul class="more_list">
           <li>
+            <%= link_to '詳細', post_path(post.id), method: :get %>
+          </li>        
+          <li>
             <%= link_to '編集', edit_post_path(post.id), method: :get %>
           </li>        
           <li>
