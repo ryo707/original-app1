@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @posts = Post.new
+    @post = Post.new
   end
 
   def create
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:nickname, :image, :title, :text)
+    params.require(:post).permit(:nickname, :image, :title, :text).merge(user_id: current_user.id)
   end
 
   def set_post
