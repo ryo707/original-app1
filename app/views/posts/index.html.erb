@@ -6,13 +6,15 @@
         <ul class="more_list">
           <li>
             <%= link_to '詳細', post_path(post.id), method: :get %>
-          </li>        
-          <li>
-            <%= link_to '編集', edit_post_path(post.id), method: :get %>
-          </li>        
-          <li>
-            <%= link_to '削除', "/posts/#{post.id}", method: :delete %>
           </li>
+          <% if user_signed_in? && current_user.id == post.user_id %>
+           <li>
+             <%= link_to '編集', edit_post_path(post.id), method: :get %>
+           </li>        
+           <li>
+             <%= link_to '削除', "/posts/#{post.id}", method: :delete %>
+           </li>
+          <% end %>
         </ul>
       </div>
       <p><%= post.title %></p>
