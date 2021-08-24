@@ -98,15 +98,30 @@ RSpec.describe 'ツイート編集', type: :system do
       expect(page).to have_content("#{@post1.text}+編集したテキスト")
     end
   end
-  context 'ツイート編集ができないとき' do
-    it 'ログインしたユーザーは自分以外が投稿したツイートの編集画面には遷移できない' do
-      # ツイート1を投稿したユーザーでログインする
-      # ツイート2に「編集」へのリンクがないことを確認する
+  context 'ポスト編集ができないとき' do
+    it 'ログインしたユーザーは自分以外が投稿したポストの編集画面には遷移できない' do
+      # ポスト1を投稿したユーザーでログインする
+      visit new_user_sessinon_path
+      fill_in 'Email', with: @post1.user.email
+      fill_in 'Password', with: @post1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+      # ポスト2に「編集」へのリンクがないことを確認する
+      expect(
+        all('.more')[0].hover
+      ).to have_no_link '編集', href: edit_post_path(@post2)
     end
     it 'ログインしていないとツイートの編集画面には遷移できない' do
       # トップページにいる
-      # ツイート1に「編集」へのリンクがないことを確認する
-      # ツイート2に「編集」へのリンクがないことを確認する
+      visit root_path
+      # ポスト1に「編集」へのリンクがないことを確認する
+      expect(
+        all('.more')[1].hover
+      ).to have_no_link '編集', href: edit_post_path(@post1)
+      # ポスト2に「編集」へのリンクがないことを確認する
+      expect(
+        all('.more')[0].hover
+      ).to have_no_link '編集', href: edit_post_path(@post2)
     end
   end
 end
