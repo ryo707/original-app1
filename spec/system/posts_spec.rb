@@ -126,48 +126,63 @@ RSpec.describe 'ツイート編集', type: :system do
 #   end
 end
 
-# RSpec.describe 'ポスト削除', type: :system do
-#   before do
-#     @post1 = FactoryBot.create(:post)
-#     @post2 = FactoryBot.create(:post)
-#   end
-#   context 'ツイート削除ができるとき' do
-#     it 'ログインしたユーザーは自らが投稿したツイートの削除ができる' do
-#       # ツイート1を投稿したユーザーでログインする
-#       visit new_user_session_path
-#       fill_in 'Email', with: @tweet1.user.email
-#       fill_in 'Password', with: @tweet1.user.password
-#       find('input[name="commit"]').click
-#       expect(current_path).to eq(root_path)
-#       # ツイート1に「削除」へのリンクがあることを確認する
-#       expect(
-#         all('.more')[1].hover
-#       ).to have_link '削除', href: tweet_path(@tweet1)
-#       # 投稿を削除するとレコードの数が1減ることを確認する
-#       expect{
-#         all('.more')[1].hover.find_link('削除', href: tweet_path(@tweet1)).click
-#       }.to change { Tweet.count }.by(-1)
-#       # 削除完了画面に遷移したことを確認する
-#       expect(current_path).to eq(tweet_path(@tweet1))
-#       # 「削除が完了しました」の文字があることを確認する
-#       expect(page).to have_content('削除が完了しました。')
-#       # トップページに遷移する
-#       visit root_path
-#       # トップページにはツイート1の内容が存在しないことを確認する（画像）
-#       expect(page).to have_no_selector ".content_post[style='background-image: url(#{@tweet1.image});']"
-#       # トップページにはツイート1の内容が存在しないことを確認する（テキスト）
-#       expect(page).to have_no_content("#{@tweet1.text}")
-#     end
-#   end
-#   context 'ツイート削除ができないとき' do
-#     it 'ログインしたユーザーは自分以外が投稿したツイートの削除ができない' do
-#       # ツイート1を投稿したユーザーでログインする
-#       # ツイート2に「削除」へのリンクがないことを確認する
-#     end
-#     it 'ログインしていないとツイートの削除ボタンがない' do
-#       # トップページに移動する
-#       # ツイート1に「削除」へのリンクがないことを確認する
-#       # ツイート2に「削除」へのリンクがないことを確認する
-#     end
-#   end
-# end
+RSpec.describe 'ポスト削除', type: :system do
+  before do
+    @post1 = FactoryBot.create(:post)
+    @post2 = FactoryBot.create(:post)
+  end
+  context '削除ができるとき' do
+    it 'ログインしたユーザーは自らが投稿したポストの削除ができる' do
+      # ポスト1を投稿したユーザーでログインする
+      visit new_user_session_path
+      fill_in 'Email', with: @post1.user.email
+      fill_in 'Password', with: @post1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+      # ポスト1に「削除」へのリンクがあることを確認する
+      expect(
+        all('.more')[1].hover
+      ).to have_link '削除', href: post_path(@post1)
+      # 投稿を削除するとレコードの数が1減ることを確認する
+      expect{
+        all('.more')[1].hover.find_link('削除', href: post_path(@post1)).click
+      }.to change { Post.count }.by(-1)
+      # 削除完了画面に遷移したことを確認する
+      expect(current_path).to eq(post_path(@post1))
+      # 「削除が完了しました」の文字があることを確認する
+      expect(page).to have_content('削除完了')
+      # トップページに遷移する
+      visit root_path
+      # トップページにはポスト1の内容が存在しないことを確認する（画像）
+      expect(page).to have_no_selector ".content_post[style='background-image: url(#{@post1.image});']"
+      # トップページにはポスト1の内容が存在しないことを確認する（テキスト）
+      expect(page).to have_no_content("#{@post1.text}")
+    end
+  end
+  context 'ポスト削除ができないとき' do
+    it 'ログインしたユーザーは自分以外が投稿したポストの削除ができない' do
+      # ポスト1を投稿したユーザーでログインする
+      visit new_user_session_path
+      fill_in 'Email', with: @post1.user.email
+      fill_in 'Password', with: @post1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+      # ポスト2に「削除」へのリンクがないことを確認する
+      expect(
+        all('.more')[0].hover
+      ).to have_no_link '削除', href: post_path(@post2)
+    end
+    it 'ログインしていないとポストの削除ボタンがない' do
+      # トップページに移動する
+      visit root_path
+      # ポスト1に「削除」へのリンクがないことを確認する
+      expect(
+        all('.more')[1].hover
+      ).to have_no_link '削除', href: post_path(@post1)
+      # ポスト2に「削除」へのリンクがないことを確認する
+      expect(
+        all(".more")[0].hover
+      ).to have_no_link '削除', href: post_path(@post2)
+    end
+  end
+end
