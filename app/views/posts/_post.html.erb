@@ -3,11 +3,11 @@
         <span><%= image_tag 'sozai_cman_jp_20210807011101.png' %></span>
         <ul class="more_list">
           <li>
-            <%= link_to '詳細', post_path(post.id) %>
+            <%= link_to '詳細', post_path(current_user.id), method: :get %>
           </li>
           <% if user_signed_in? && current_user.id == post.user_id %>
            <li>
-             <%= link_to '編集', edit_post_path(post.id), method: :get %>
+             <%= link_to '編集', edit_post_path(current_user.id), method: :get %>
            </li>        
            <li>
              <%= link_to '削除', "/posts/#{post.id}", method: :delete %>
