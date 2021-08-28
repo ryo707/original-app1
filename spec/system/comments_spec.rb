@@ -8,11 +8,7 @@
 
 #   it 'ログインしたユーザーはポスト詳細ページでコメント投稿できる' do
 #     # ログインする
-#     visit new_user_session_path
-#     fill_in 'Email', with: @post.user.email
-#     fill_in 'Password', with: @post.user.password
-#     find('input[name="commit"]').click
-#     expect(current_path).to eq(root_path)
+      # sign_in(@post.user)
 #     # ツイート詳細ページに遷移する
 #     visit post_path(@post)
 #     # フォームに情報を入力する
