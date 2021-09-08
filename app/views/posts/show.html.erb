@@ -24,31 +24,34 @@
     <% if user_signed_in? %>
       <%= form_with(model: [@post, @comment], local: true) do |form| %>
         <%= form.text_area :text, pleceholder: "コメントする", rows: "2" %>
-        <%= form.submit "SEND" %>
+        <div class="form-group row" id="star">
+        <%= form.label :star,'評価 ', class:'col-md-3 col-form-label' %>
+        <%= form.hidden_field :star, id: :review_star %>
+        </div>
+        <%= form.submit "SEND COMMEN" %>
       <% end %>
     <% else %>
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
     <% end %>
     <div class="comments">
-      <h4>＜コメント一覧＞</h4>
+      <h4>《  コメント一覧  》</h4>
       <% @comments.each do |comment| %>
         <p>
-          <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>:</strong>
-          <%= comment.text %>
+          <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %></strong>
         </p>
-        <%= link_to '口コミを投稿する', post_comments_path(@post.id) %>
           <% @comments.each do |comment|%>
             <div class=card>
-              <p>内容:<%= comment.title %></p>
-              <p>評価 :<%= comment.rate %>点</p>
+              <p><%= comment.text %></p>
+              <p>総合評価:<%= comment.star %>点</p>
               <div id="star-rate<%= comment.id%>"></div>    
               <script>
+                $('#star-rate<%= comment.id%>').raty({
                   size      : 36,
                   starOff   : '<%= asset_path('star-off.png') %>',
                   starOn    : '<%= asset_path('star-on.png') %>',
                   half      : false,
                   readOnly: true,
-                  score: <%= comment.id %>,
+                  score: <%= comment.star %>,
                 });
               </script>
             </div>
@@ -58,4 +61,18 @@
   </div>
 </div>
 
+
+
+
+  <!-- 評価javascript -->
+  <script>
+  $('#star').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+
+    scoreName: 'comment[star]',
+    half: false,
+  });
+  </script>  
 
