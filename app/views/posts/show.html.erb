@@ -36,28 +36,26 @@
           <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>:</strong>
           <%= comment.text %>
         </p>
+        <%= link_to '口コミを投稿する', post_comments_path(@post.id) %>
+          <% @comments.each do |comment|%>
+            <div class=card>
+              <p>内容:<%= comment.title %></p>
+              <p>評価 :<%= comment.rate %>点</p>
+              <div id="star-rate<%= comment.id%>"></div>    
+              <script>
+                  size      : 36,
+                  starOff   : '<%= asset_path('star-off.png') %>',
+                  starOn    : '<%= asset_path('star-on.png') %>',
+                  half      : false,
+                  readOnly: true,
+                  score: <%= comment.id %>,
+                });
+              </script>
+            </div>
+          <% end %>
       <% end %>
     </div>
   </div>
 </div>
 
-<h1>口コミ一覧</h1>
-<%= link_to '口コミを投稿する', post_comments_path(@post.id) %>
-<% @comments.each do |comment|%>
 
-  <div class=card>
-    <p>内容:<%= comment.title %></p>
-    <p>評価 :<%= comment %>点</p>
-    <div id="star-rate<%= comment.id%>"></div>    
-    <script>
-      $('#star-rate<%= comment.id%>').raty({
-        size      : 36,
-        starOff   : '<%= asset_path('star-off.png') %>',
-        starOn    : '<%= asset_path('star-on.png') %>',
-        half      : false,
-        readOnly: true,
-        score: <%= comment %>,
-      });
-    </script>
-  </div>
-<% end %>

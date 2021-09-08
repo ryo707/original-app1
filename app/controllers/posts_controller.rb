@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @posts = Post.includes(:user).order("created_at DESC")
+    @posts = Post.all
+    post = Post.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -37,13 +38,16 @@ class PostsController < ApplicationController
   end
 
   private
+
   def post_params
     params.require(:post).permit(:image, :title, :text).merge(user_id: current_user.id)
   end
 
+
   def set_post
     @post = Post.find(params[:id])
   end
+
 
   def move_to_index
     unless user_signed_in?
