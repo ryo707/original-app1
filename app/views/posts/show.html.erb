@@ -23,24 +23,26 @@
   <div class="container">
     <% if user_signed_in? %>
       <%= form_with(model: [@post, @comment], local: true) do |form| %>
-        <%= form.text_area :text, pleceholder: "コメントする", rows: "2" %>
+        <%= form.text_field :title, row: "2", placeholder:"タイトル" %>
+        <%= form.text_area :text, rows: "2", pleceholder:"コメント" %>
         <div class="form-group row" id="star">
         <%= form.label :star,'評価 ', class:'col-md-3 col-form-label' %>
         <%= form.hidden_field :star, id: :review_star %>
-        </div>
-        <%= form.submit "SEND COMMEN" %>
+  </div>
+        <%= form.submit "SEND COMMENT" %>    
       <% end %>
     <% else %>
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
     <% end %>
     <div class="comments">
       <h4>《  コメント一覧  》</h4>
-      <% @comments.each do |comment| %>
+      <% @comments.each do |comment|%>
         <p>
           <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %></strong>
         </p>
-          <% @comments.each do |comment|%>
+          
             <div class=card>
+              <p><%= comment.title %></p>
               <p><%= comment.text %></p>
               <p>総合評価:<%= comment.star %>点</p>
               <div id="star-rate<%= comment.id%>"></div>    
@@ -49,14 +51,14 @@
                   size      : 36,
                   starOff   : '<%= asset_path('star-off.png') %>',
                   starOn    : '<%= asset_path('star-on.png') %>',
-                  half      : false,
+                  half      :false,
                   readOnly: true,
                   score: <%= comment.star %>,
                 });
               </script>
             </div>
-          <% end %>
-      <% end %>
+          
+        <% end %>
     </div>
   </div>
 </div>
