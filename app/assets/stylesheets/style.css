@@ -1061,3 +1061,8 @@ footer p {
 .search-form .search-btn {
   width: 10%;
 }
+
+.title-size {
+  font-weight: bold;
+  font-size: 18px;
+}

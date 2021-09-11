@@ -35,17 +35,16 @@
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
     <% end %>
     <div class="comments">
-      <h4>《  コメント一覧  》</h4>
+      <h4>《  みんなのレビュー  》</h4>
       <% @comments.each do |comment|%>
         <p>
           <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %></strong>
         </p>
           
             <div class=card>
-              <p><%= comment.title %></p>
+              <div id="star-rate<%= comment.id%>"></div>   
+              <p class="title-size"><%= comment.title %></p>
               <p><%= comment.text %></p>
-              <p>総合評価:<%= comment.star %>点</p>
-              <div id="star-rate<%= comment.id%>"></div>    
               <script>
                 $('#star-rate<%= comment.id%>').raty({
                   size      : 36,
