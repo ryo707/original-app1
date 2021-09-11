@@ -3,4 +3,8 @@
   <% @posts.each do |post| %>
     <%= render partial: "posts/post", locals: { post: post } %>
   <% end %>
+  <%# css設定↓ %>
+  <%= link_to :back do %>
+    <button>戻る</button>
+  <% end %>
 </div>
