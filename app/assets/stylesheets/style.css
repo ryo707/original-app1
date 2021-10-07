@@ -655,23 +655,25 @@ body {
   line-height: 1.57;
   letter-spacing: 0.15em;
   font-size: 16px;
-  color: #004400;
+  color: #5e5a5a;
   font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
   margin: 0;
 }
 
+/* ページタイトル */
 a {
   text-decoration: none;
-  color: #15e715;
+  color: #5e5a5a;
 }
 
 a:hover {
-  color: #00CC00;
+  color: #7a7a7a;
 }
 
 .bold {
   font-weight: bold;
 }
+/* ページタイトル */
 
 .serif,
 div.contents.row div.content_post p {
@@ -682,9 +684,11 @@ div.contents.row div.content_post p {
   font-size: 2em !important;
 }
 
+/* ペーストのカラー */
 ::selection {
-  background: #8ff38f;
+  background: #adacac;
 }
+/* ペーストのカラー */
 
 .transition,
 a,
@@ -703,12 +707,13 @@ form input[type="submit"] {
   transition-timing-function: linear;
 }
 
+/* 投稿ボタン関連 */
 .btn,
 header.header div.header__bar.row div.grid-6 a.post {
   padding: 8px 20px;
   font-size: 14px;
-  border: 2px solid #008000;
-  color: #008000;
+  border: 2px solid #5e5a5e;
+  color: #5e5a5e;
   font-weight: bold;
   text-align: center;
   border-radius: 3px;
@@ -717,9 +722,10 @@ header.header div.header__bar.row div.grid-6 a.post {
 
 .btn:hover,
 header.header div.header__bar.row div.grid-6 a.post:hover {
-  border-color: #00CC00;
-  color: #00CC00;
+  border-color: #7a7a7a;
+  color: #7a7a7a;
 }
+/* 投稿ボタン関連 */
 
 .title {
   font-weight: bold;
@@ -737,8 +743,8 @@ header.header div.header__bar.row div.grid-6 a.post:hover {
 
 header.header {
   padding: 10px;
-  border-bottom: 1px solid #44ad41;
-  background-color: #d1ffbe;
+  border-bottom: 1px solid #666666;
+  background-color: #cac2c2;
   position: fixed;
   top: 0;
   left: 0;
@@ -797,7 +803,7 @@ header.header .user_nav span:after {
 }
 
 header.header .user_nav span:hover ul {
-  color: #00CC00;
+  color: #666666;
   display: block;
 }
 
@@ -865,11 +871,11 @@ div.contents.row div.content_post {
   padding: 30px;
   position: relative;
   height: 300px;
-  color: rgb(53, 226, 91);
+  color: rgb(68, 64, 64);
   background-size: cover;
   background-position: center center;
   border-radius: 3px;
-  box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
+  box-shadow: 0 0 10px rgba(105, 105, 105, 0.2);
 }
 
 div.contents.row div.content_post:after {
@@ -906,14 +912,15 @@ div.contents.row div.content_post .more:hover ul.more_list {
   display: block;
 }
 
+/* 詳細タブ関連 */
 div.contents.row div.content_post .more ul.more_list {
   position: absolute;
   text-align: left;
   width: 80px;
   right: 0;
   font-size: 12px;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: rgb(202, 200, 200);
+  border: 1px solid rgb(163, 163, 163);
   display: none;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   border-radius: 3px;
@@ -933,8 +940,8 @@ div.contents.row div.content_post .more ul.more_list li a {
 }
 
 div.contents.row div.content_post .more ul.more_list li a:hover {
-  background-color: #57C3E9;
-  color: #fff;
+  background-color: #cac8c8;
+  color: rgb(194, 193, 193);
 }
 
 /* title,textの配置等 */
@@ -948,7 +955,7 @@ div.contents.row div.content_post p {
   font-size: 23px;
   z-index: 2;
   font-weight: bold;
-  text-shadow: 0 0 2px rgb(42, 167, 63), 0 0 1px rgb(0, 170, 23), 0 0 1px #000;
+  text-shadow: 0 0 2px rgb(220, 221, 220), 0 0 1px rgb(162, 170, 163), 0 0 1px #000;
 }
 
 div.contents.row div.content_post span.name {
@@ -966,7 +973,7 @@ div.contents.row div.content_post span.name a {
 
 div.contents.row div.content_post span.name a:hover {
   text-decoration: underline;
-  color: #7bb87b;
+  color: #aaaaaa;
 }
 
 div.contents.row div.content_post span.name span {
@@ -997,16 +1004,17 @@ form textarea {
   font-family: "游ゴシック", "YuGothic";
 }
 
+/* 検索ボタン */
 form input[type="submit"] {
-  background-color: #64fa84;
+  background-color: #bbb0b0;
   border-radius: 20px;
-  color: #fff;
+  color: rgb(97, 96, 96);
   border: 0;
   font-size: 18px;
 }
 
 form input[type="submit"]:hover {
-  background-color: #93FFAB;
+  background-color: #9fa5a1e1;
 }
 
 .container {
@@ -1031,7 +1039,7 @@ form input[type="submit"]:hover {
 }
 
 .comments a {
-  color: #57C3E9;
+  color: #2470a3;
 }
 
 .comments a:hover {
@@ -1041,7 +1049,7 @@ form input[type="submit"]:hover {
 footer {
   margin: 30px auto;
   padding: 10px;
-  color: #00CC00;
+  color: #000000;
 }
 
 footer p {
@@ -1089,4 +1097,8 @@ video {
   background-image: linear-gradient(45deg, rgba(0,0,0,.3) 50%, rgba(0,0,0,.7) 50%);
   background-size: 4px 4px;
   z-index: auto;
+}
+
+html {
+  background-color: rgb(119, 115, 115);
 }
