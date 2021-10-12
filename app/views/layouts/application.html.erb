@@ -13,11 +13,11 @@
   <video src="https://assets.mixkit.co/videos/preview/mixkit-two-people-working-out-1318-small.mp4" autoplay loop muted>   
   </video>
 </div>
-
+ <div class=overlay>
   <body>
    <header class="header">
     <div class="header__bar row">
-      <h1 class="grid-6"><a href="/">NewApp</a></h1>
+      <h1 class="grid-6"><a href="/">MySupplement</a></h1>
     <% if user_signed_in? %>
       <div class="user_nav grid-6">
           <span><%= current_user.nickname %>
@@ -39,12 +39,14 @@
     </div>
    </header>
    <%= yield %>
+   </div>
    <footer>
     <p>
-      Copyright OriginalApp
+      Copyright MySupplement
     </p>
    </footer>
   </body>
+
 </html>
 
 

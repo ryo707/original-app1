@@ -1,3 +1,4 @@
+ <div class="contents2">
    <div class="content_post" style="background-image: url(<%= post.image %>);">
       <div class="more">
         <span><%= image_tag 'sozai_cman_jp_20210807011101.png' %></span>
@@ -7,7 +8,7 @@
           </li>
           <% if user_signed_in? && current_user.id == post.user_id %>
            <li>
-             <%= link_to '編集', edit_post_path(current_user.id), method: :get %>
+             <%= link_to '編集', edit_post_path(post.id), method: :get %>
            </li>        
            <li>
              <%= link_to '削除', "/posts/#{post.id}", method: :delete %>
@@ -17,6 +18,7 @@
       </div>
       <p><%= post.title %></p>
       <p><%= post.text %></p>
+      </div>
       <span class="name">
         <a href="/users/<%= post.user.id %>">
           <span>投稿者</span><%= post.user.nickname %>
