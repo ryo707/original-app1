@@ -2,7 +2,7 @@
   <div class="content_post" style="background-image: url(<%= @post.image %>);">
    <% if user_signed_in? && current_user.id == @post.user_id %>
     <div class="more">
-      <span><%= image_tag 'sozai_cman_jp_20210807011101.png' %></span>
+      <span><%= image_tag 'bars_hoso.png' %></span>
       <ul class="more_list">
         <li>
           <%= link_to '編集', edit_post_path(@post.id), method: :get %>
@@ -29,13 +29,13 @@
         <%= form.label :star,'評価 ', class:'col-md-3 col-form-label' %>
         <%= form.hidden_field :star, id: :review_star %>
        </div>
-        <%= form.submit "SEND COMMENT" %>    
+        <%= form.submit "SEND EVALUATION" %>    
       <% end %>
     <% else %>
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
     <% end %>
     <div class="comments">
-      <h4>《  レビュー  》</h4>
+      <h4>《  レビュー一覧  》</h4>
       <% @comments.each do |comment|%>
         <p>
           <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %></strong>
@@ -56,7 +56,6 @@
                 });
               </script>
             </div>
-          
         <% end %>
   </div>
 </div>

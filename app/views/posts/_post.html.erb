@@ -1,7 +1,7 @@
  <div class="contents2">
    <div class="content_post" style="background-image: url(<%= post.image %>);">
       <div class="more">
-        <span><%= image_tag 'sozai_cman_jp_20210807011101.png' %></span>
+        <span><%= image_tag 'bars_hoso.png' %></span>
         <ul class="more_list">
           <li>
             <%= link_to '詳細', post_path(post.id), method: :get %>
@@ -16,8 +16,11 @@
           <% end %>
         </ul>
       </div>
-      <p><%= post.title %></p>
-      <p><%= post.text %></p>
+      <div class="posttitle">
+        <p><%= post.title %></p>
+      </div>
+      <div class="posttext">
+        <p><%= post.text %></p>
       </div>
       <span class="name">
         <a href="/users/<%= post.user.id %>">
