@@ -16,11 +16,13 @@
           <% end %>
         </ul>
       </div>
-      <div class="posttitle">
-        <p><%= post.title %></p>
-      </div>
-      <div class="posttext">
-        <p><%= post.text %></p>
+      <div class="post_content">
+        <div class="posttitle">
+          <p><%= post.title %></p>
+        </div>
+        <div class="posttext">
+          <p><%= post.text %></p>
+        </div>
       </div>
       <span class="name">
         <a href="/users/<%= post.user.id %>">

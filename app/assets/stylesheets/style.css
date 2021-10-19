@@ -419,7 +419,7 @@ img {
 
 textarea {
   height: auto;
-  min-height: 50px;
+  min-height: 100px;
 }
 
 select {
@@ -959,22 +959,21 @@ div.contents.row div.content_post p {
 }
 /* テキスト関係 */
 
-div.posttitle {
-  color:rgba(8, 8, 8, 0.747);
-}
 
-div.posttext {
-  position: relative;
-  top: 20px;
-  left: -25px;
-}
 
+
+/* 投稿関係 */
 .contents2 {
   margin: 20px 0;
   padding: 30px;
   box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
-  background-color: rgb(223, 223, 223);
   box-sizing: border-box;
+  
+}
+
+.content_post {
+  background-color: rgb(189, 189, 189);
+  margin: 10px;
 }
 
 
@@ -1038,9 +1037,10 @@ form input[type="submit"] {
 }
 
 form input[type="submit"]:hover {
-  background-color: #9fa5a1e1;
+  background-color: #bec4c0e8;
 }
 
+/* 編集画面 */
 .container {
   margin: 20px 0;
   padding: 30px;
@@ -1054,8 +1054,10 @@ form input[type="submit"]:hover {
   text-align: center;
   font-weight: normal;
   font-size: 20px;
-  color: #666;
+  color: rgb(122, 122, 122);
 }
+
+/* 編集画面 */
 
 .comments {
   padding: 5px;
