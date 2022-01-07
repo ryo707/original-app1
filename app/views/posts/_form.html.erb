@@ -1,3 +1,5 @@
+<%# 投稿フォーム %>
+
 <%= form_with(model: post, local: true) do |form| %>
   <%= form.text_field :image, placeholder: "サプリメントの画像" %>
   <%= form.text_area :title, placeholder: "商品名" %>

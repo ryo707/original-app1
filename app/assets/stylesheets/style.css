@@ -944,8 +944,8 @@ div.contents.row div.content_post .more ul.more_list li a:hover {
 
 /* title,textの配置等 */
 
-/* テキスト関係 */
-div.contents.row div.content_post p {
+/* タイトル関係 */
+div.contents.row div.content_post title {
   position: absolute;
   top: 420px;
   left: 20px;
@@ -957,8 +957,30 @@ div.contents.row div.content_post p {
   font-weight: bold;
   text-shadow: 0 0 2px rgb(220, 221, 220), 0 0 1px rgb(162, 170, 163), 0 0 1px #000;
 }
-/* テキスト関係 */
 
+
+.posttitle  {
+ top: 20px;
+ font-size: 30px;
+}
+/* タイトル関係 */
+
+
+/* テキスト関係 */
+div.contents.row div.content_post text {
+  position: absolute;
+  top: 420px;
+  left: 20px;
+  right: 100px;
+  bottom: 0px;
+  margin: 0;
+  font-size: 23px;
+  z-index: 2;
+  font-weight: bold;
+  text-shadow: 0 0 2px rgb(220, 221, 220), 0 0 1px rgb(162, 170, 163), 0 0 1px #000;
+}
+
+/* テキスト関係 */
 
 
 
